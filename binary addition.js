@@ -1,13 +1,10 @@
 function addBinary(a, b) {
-  number = a + b;
-  const binary = (number) => {
-    let output = "";
-    for (let i = 0; number >= 1; i++) {
-      number % 2 === 1 ? (output += "1") : (output += "0");
-      number = Math.floor(number / 2);
-    }
-    return output;
-  };
-  return binary(number);
+  let number = Number(a) + Number(b);
+  let binary = [];
+  while (number > 0) {
+    if (number % 2 === 0) binary.unshift(0);
+    else binary.unshift(1);
+    number = Math.floor(number / 2);
+  }
+  return binary.join("");
 }
-console.log(addBinary(51, 12));
